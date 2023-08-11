@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Card</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Add Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 50px;
+        /* padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; */
+        background-color: #f0f0f0;
+      }
+
+      .product-card {
+        max-width: 300px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 0px;
+        text-align: center;
+        position: relative;
+        /* Add position relative to enable absolute positioning of favorite button */
+      }
+
+      .favorite-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: none;
+        background: none;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f0f0f0;
+      }
+
+      .price-label {
+        position: absolute;
+        bottom: 240px;
+        left: 0px;
+        background-color: red;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 0px;
+        font-size: 14px;
+      }
+
+      .product-card img {
+        max-width: 300px;
+        max-height: 190px;
+        width: auto;
+        height: auto;
+        border-radius: 0px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .product-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .product-description {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .quantity-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        margin-top: 15px;
+      }
+
+      .quantity-btn {
+        background-color: #f0f0f0;
+        border: none;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .quantity-input {
+        width: 40px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 5px;
+      }
+
+      .product-price {
+        font-size: 18px;
+        font-weight: bold;
+        color: red;
+        margin-bottom: 0;
+      }
+
+      .add-to-cart-btn {
+        background-color: orange;
+        width: 100%;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .add-to-cart-btn:hover {
+        background-color: orange;
+      }
+
+      .kcla {
+        font-size: 12px;
+        color: orange;
+        margin-bottom: 15px;
+      }
+
+      /* Adjust quantity controls */
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+      }
+
+      .quantity-label {
+        margin: 0 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="text-center">All Products</h1>
+      <br />
+      <div class="row">
+        <div class="col-md-4">
+          <div class="product-card card text-center">
+            <!-- Product 1 details -->
+            <button class="favorite-btn">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="price-label">$4.99</span>
+            <img src="burger.jpg" class="card-img-top" alt="Product Image" />
+            <div class="card-body">
+              <h2 class="product-name card-title">Burger</h2>
+              <p class="product-description card-text">
+                Product Description Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+              <div class="row">
+                <p class="kcla col-md-6">
+                  <i class="fa-solid fa-fire"></i> 200-280 calories
+                </p>
+                <button class="add-to-cart-btn btn btn-success col-md-6">
+                  <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                </button>
+              </div>
+              <div class="quantity-container">
+                <p class="product-price card-text col-md-4">$4.99</p>
+                <div class="quantity-controls col-md-4">
+                  <button class="quantity-btn" id="subtract-btn">-</button>
+                  <input
+                    type="number"
+                    class="quantity-input form-control"
+                    id="quantity"
+                    value="1"
+                  />
+                  <button class="quantity-btn" id="add-btn">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card card text-center">
+            <!-- Product 2 details -->
+            <button class="favorite-btn">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="price-label">$5.99</span>
+            <img src="pizza.jpg" class="card-img-top" alt="Product Image" />
+            <div class="card-body">
+              <h2 class="product-name card-title">Pizza</h2>
+              <p class="product-description card-text">
+                Product Description Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+              <div class="row">
+                <p class="kcla col-md-6">
+                  <i class="fa-solid fa-fire"></i> 300-400 calories
+                </p>
+                <button class="add-to-cart-btn btn btn-success col-md-6">
+                  <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                </button>
+              </div>
+              <div class="quantity-container">
+                <p class="product-price card-text col-md-4">$5.99</p>
+                <div class="quantity-controls col-md-4">
+                  <button class="quantity-btn" id="subtract-btn">-</button>
+                  <input
+                    type="number"
+                    class="quantity-input form-control"
+                    id="quantity"
+                    value="1"
+                  />
+                  <button class="quantity-btn" id="add-btn">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card card text-center">
+            <!-- Product 3 details -->
+            <button class="favorite-btn">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="price-label">$3.49</span>
+            <img src="drink.jpg" class="card-img-top" alt="Product Image" />
+            <div class="card-body">
+              <h2 class="product-name card-title">Drink</h2>
+              <p class="product-description card-text">
+                Product Description Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+              <div class="row">
+                <p class="kcla col-md-6">
+                  <i class="fa-solid fa-fire"></i> 100-150 calories
+                </p>
+                <button class="add-to-cart-btn btn btn-success col-md-6">
+                  <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                </button>
+              </div>
+              <div class="quantity-container">
+                <p class="product-price card-text col-md-4">$3.49</p>
+                <div class="quantity-controls col-md-4">
+                  <button class="quantity-btn" id="subtract-btn">-</button>
+                  <input
+                    type="number"
+                    class="quantity-input form-control"
+                    id="quantity"
+                    value="1"
+                  />
+                  <button class="quantity-btn" id="add-btn">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const priceElement = document.querySelector(".product-price");
+        const quantityInput = document.getElementById("quantity");
+        const addBtn = document.getElementById("add-btn");
+        const subtractBtn = document.getElementById("subtract-btn");
+        const initialPrice = 4.99;
+
+        quantityInput.addEventListener("input", updateProductPrice);
+        addBtn.addEventListener("click", () => updateQuantity(1));
+        subtractBtn.addEventListener("click", () => updateQuantity(-1));
+
+        function updateQuantity(change) {
+          let quantity = parseInt(quantityInput.value) + change;
+          if (quantity < 1) {
+            quantity = 1;
+          }
+          quantityInput.value = quantity;
+          updateProductPrice();
+        }
+
+        function updateProductPrice() {
+          let quantity = parseInt(quantityInput.value);
+          let totalPrice = initialPrice * quantity;
+          priceElement.textContent = "$" + totalPrice.toFixed(2);
+        }
+      });
+    </script>
+  </body>
+</html>
